@@ -1,1 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>202603231413</title>
+
+<style>
+
+/* =========================
+   THEME SYSTEM
+========================= */
+:root{
+  --bg:#ffffff;
+  --text:#111111;
+  --sub:#666;
+  --panel:#f4f4f5;
+  --accent:#4f46e5;
+}
+
+body.dark{
+  --bg:#0b0f1a;
+  --text:#f1f5f9;
+  --sub:#94a3b8;
+  --panel:#111827;
+}
+
+/* =========================
+   BASE
+========================= */
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.35s;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-weight:700;
+  letter-spacing:.5px;
+}
+
+.controls button{
+  margin-left:10px;
+  border:none;
+  padding:8px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  background:var(--panel);
+  color:var(--text);
+  font-weight:600;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero{
+  text-align:center;
+  margin-top:60px;
+}
+
+.hero h1{
+  font-size:44px;
+  margin:0;
+}
+
+.hero p{
+  margin-top:12px;
+  color:var(--sub);
+  font-size:18px;
+}
+
+/* =========================
+   VIDEO
+========================= */
+.video-wrapper{
+  margin-top:40px;
+  border-radius:18px;
+  overflow:hidden;
+  background:black;
+  box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+video{
+  width:100%;
+  display:block;
+}
+
+/* =========================
+   CONTENT SECTION
+========================= */
+.section{
+  margin-top:80px;
+  background:var(--panel);
+  padding:50px;
+  border-radius:18px;
+}
+
+.section h2{
+  margin-top:0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+  text-align:center;
+  margin:70px 0 20px;
+  font-size:14px;
+  color:var(--sub);
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:768px){
+  .hero h1{font-size:30px;}
+  .section{padding:30px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">202603231413</div>
+
+  <div class="controls">
+    <button onclick="toggleLanguage()">ENG / KOR</button>
+    <button onclick="toggleDark()">Light / Dark</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1
+    data-en="A Recorded Moment"
+    data-ko="기록된 하나의 순간">
+    A Recorded Moment
+  </h1>
+
+  <p
+    data-en="An experimental visual captured through time, motion, and atmosphere."
+    data-ko="시간과 움직임, 그리고 분위기를 통해 기록된 실험적 영상.">
+    An experimental visual captured through time, motion, and atmosphere.
+  </p>
+
+  <div class="video-wrapper">
+    <video autoplay muted loop controls playsinline>
+      <source src="main/asset/202603231413.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+  <h2
+    data-en="About the Project"
+    data-ko="프로젝트 소개">
+    About the Project
+  </h2>
+
+  <p
+    data-en="This landing page presents a single moving image as an experience rather than content. The work focuses on mood, pacing, and the emotional texture created between viewer and screen."
+    data-ko="이 랜딩 페이지는 하나의 영상을 콘텐츠가 아닌 경험으로 제시합니다. 관객과 화면 사이에서 만들어지는 분위기와 리듬, 감정의 질감을 중심으로 구성되었습니다.">
+    This landing page presents a single moving image as an experience rather than content.
+  </p>
+</section>
+
+<!-- CONCEPT -->
+<section class="section">
+  <h2
+    data-en="Concept"
+    data-ko="컨셉">
+    Concept
+  </h2>
+
+  <p
+    data-en="Minimal structure allows the video itself to become the narrative. Light and dark modes change perception, while language transition reflects multiple interpretations."
+    data-ko="최소한의 구조를 통해 영상 자체가 서사가 되도록 설계했습니다. 라이트와 다크 모드는 인식의 변화를 만들고, 언어 전환은 서로 다른 해석을 가능하게 합니다.">
+    Minimal structure allows the video itself to become the narrative.
+  </p>
+</section>
+
+<footer>
+  <span
+    data-en="© 2026 Visual Project"
+    data-ko="© 2026 비주얼 프로젝트">
+    © 2026 Visual Project
+  </span>
+</footer>
+
+</div>
+
+<script>
+
+/* =========================
+   LANGUAGE TOGGLE
+========================= */
+let currentLang = "en";
+
+function toggleLanguage(){
+  currentLang = currentLang === "en" ? "ko" : "en";
+
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    el.textContent = el.dataset[currentLang];
+  });
+}
+
+/* =========================
+   DARK MODE
+========================= */
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+</script>
+
+</body>
+</html>
